@@ -1,6 +1,6 @@
 import argparse
 
-from salty import store, get_secret, new, add_secret, set_current, add
+from salty import store, get_secret, new, add_secret, current, select
 
 
 def keyfunc(args):
@@ -25,11 +25,11 @@ def keyfunc(args):
             raise ValueError("Either value or position should be provided")
 
         if args.value is not None:
-            add(args.value)
+            current(args.value)
             return
 
         if args.pos is not None:
-            set_current(args.pos)
+            select(args.pos)
             return
 
     raise ValueError("Missing command %s" % args.action)
@@ -84,7 +84,6 @@ def main():
         args.func(args)
     except Exception as e:
         parser.print_help()
-        print(e)
 
 
 if __name__ == "__main__":
