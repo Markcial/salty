@@ -13,7 +13,7 @@ setup(
     version='0.1',
     description='Password management tool',
     author='Mark garcia Sastre',
-    author_email='markcial@gmail.com    ',
+    author_email='markcial@gmail.com',
     url='https://github.com/markcial/salty',
     packages=find_packages(),
     test_suite='nose.collector',
