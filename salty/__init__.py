@@ -53,6 +53,10 @@ def new():
     return _new()
 
 
+def add(key):
+    store.add_key(bytes(key, 'utf8'), current=True)
+
+
 def set_current(pos):
     store.set_current(pos)
 

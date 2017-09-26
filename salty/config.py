@@ -55,9 +55,16 @@ class Store(object):
     def secrets(self):
         return self._data[self.SECRETS]
 
-    def add_key(self, key):
+    def add_key(self, key, current=False):
         assert type(key) is bytes
-        self._data[self.KEYS] += [key.decode()]
+
+        raw = key.decode()
+        if raw not in self._data[self.KEYS]:
+            self._data[self.KEYS] += [raw]
+
+        if current:
+            self._data[self.CURRENT] = key.decode()
+
         self.flush()
 
     def add_secret(self, name, secret):
