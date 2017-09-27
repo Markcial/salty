@@ -1,10 +1,12 @@
-from salty.config import encoder, Store
-
 from nacl.exceptions import CryptoError
 from nacl.utils import random
 from nacl.secret import SecretBox
 
+from salty.config import encoder, Store
 from salty.exceptions import NoValidKeyFound, DefaultKeyNotSet
+
+
+__all__ = ['new', 'current', 'select', 'add_secret', 'get_secret', 'encrypt', 'decrypt']
 
 
 def _new():

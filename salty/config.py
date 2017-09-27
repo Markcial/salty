@@ -5,6 +5,9 @@ from pathlib import Path
 from nacl.encoding import URLSafeBase64Encoder
 
 
+__all__ = ['encoder', 'paths', 'Store', 'store']
+
+
 encoder = URLSafeBase64Encoder()
 
 paths = type('paths', (), {})

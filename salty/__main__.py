@@ -1,7 +1,7 @@
 import argparse
 
-from salty import __version__
 from salty.api import store, get_secret, new, add_secret, current, select
+from salty.version import __version__
 
 
 def keyfunc(args):

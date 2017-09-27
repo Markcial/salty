@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import sys
-from salty import __version__
+from salty.version import __version__
 from setuptools import find_packages, setup
 
 
