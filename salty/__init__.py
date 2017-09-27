@@ -1,4 +1,4 @@
-from nacl.exceptions import ValueError, CryptoError
+from nacl.exceptions import CryptoError
 
 from salty.config import encoder, paths, Store
 
@@ -30,19 +30,19 @@ def _encrypt(message, key=None):
     return _box(key).encrypt(message, encoder=encoder)
 
 
-def _decrypt(message, key=None):
-    assert type(message) is bytes
+def _decrypt(name, key=None):
+    assert type(name) is bytes
 
     if key is None:
         for k in store.keys:
             dk = bytes(k, 'utf8')
             try:
-                return _box(dk).decrypt(message, encoder=encoder)
-            except CryptoError as e:
+                return _box(dk).decrypt(name, encoder=encoder)
+            except CryptoError:
                 continue
         raise NoValidKeyFound
 
-    return _box(key).decrypt(message, encoder=encoder)
+    return _box(key).decrypt(name, encoder=encoder)
 
 
 store = Store(default_key=_new().decode())
@@ -83,3 +83,15 @@ def get_secret(name):
 
 def secrets():
     return store.secrets
+
+
+def decrypt(name, key=None):
+    key = key or current()
+
+    return _decrypt(name, key)
+
+
+def encrypt(message, key=None):
+    key = key or current()
+
+    return _encrypt(message, key)
