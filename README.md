@@ -1,9 +1,13 @@
 # salty
 
-[![PyPI version](https://badge.fury.io/py/Salty.svg)](pypi-link)
-[![Build Status](https://travis-ci.org/Markcial/salty.svg?branch=master)](travis-link)
+[![PyPI version][pypi-badge]][pypi-link]
+[![Build Status][travis-badge]][travis-link]
 
 Small password management utility made with [PyNaCl](pynacl)
+
+## Installation
+
+    pip install salty
 
 ## Usage
 
@@ -102,4 +106,6 @@ And decrypt them back
 
 [pynacl]: https://github.com/pyca/pynacl
 [travis-link]: https://travis-ci.org/Markcial/salty
+[travis-badge]: https://travis-ci.org/Markcial/salty.svg?branch=master
 [pypi-link]: https://badge.fury.io/py/Salty
+[pypi-badge]: https://badge.fury.io/py/Salty.svg
