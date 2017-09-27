@@ -1,6 +1,7 @@
 import argparse
 
-from salty import store, get_secret, new, add_secret, current, select
+from salty import __version__
+from salty.api import store, get_secret, new, add_secret, current, select
 
 
 def keyfunc(args):
@@ -49,7 +50,7 @@ def decryption(args):
 
 
 def make_parser():
-    parser = argparse.ArgumentParser(description='Salty password management tool.')
+    parser = argparse.ArgumentParser(description='Salty password management tool (v%s).' % __version__)
 
     subparsers = parser.add_subparsers(help='Sub command list')
 
