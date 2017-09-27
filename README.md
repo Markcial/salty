@@ -1,8 +1,9 @@
 # salty
 
-[![PyPI version](https://badge.fury.io/py/Salty.svg)](https://badge.fury.io/py/Salty)
+[![PyPI version](pypi-badge)](pypi-link)
+[![Build Status](travis-badge)](travis-link)
 
-Small password management utility made with [PyNaCl][1]
+Small password management utility made with [PyNaCl](pynacl)
 
 ## Usage
 
@@ -99,4 +100,8 @@ And decrypt them back
 
 
 
-[1] https://github.com/pyca/pynacl
+[pynacl]: https://github.com/pyca/pynacl
+[travis-link]: https://travis-ci.org/Markcial/salty
+[travis-badge]: https://travis-ci.org/Markcial/salty.svg?branch=master
+[pypi-link]: https://badge.fury.io/py/Salty
+[pypi-badge]: https://badge.fury.io/py/Salty.svg
