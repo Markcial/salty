@@ -1,7 +1,16 @@
 language: python
 python:
   - 3.6
-install: pip install .
+before_script:
+  - pip install .
+script: python -m pytest
+after_script:
+  - pip install coveralls
+  - coverage run --source=salty setup.py test
+  - coveralls
+branches:
+  only:
+    - master
 deploy:
   provider: pypi
   user: markcial

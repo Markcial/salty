@@ -17,7 +17,7 @@ setup(
     url='https://github.com/markcial/salty',
     packages=find_packages(),
     test_suite='nose.collector',
-    tests_require=['nose', 'nose-cover3'],
+    tests_require=['pytest', 'coverage'],
     install_requires=['pynacl'],
     entry_points={
        'console_scripts': [
