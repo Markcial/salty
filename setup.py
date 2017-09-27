@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import sys
+from salty import __version__
 from setuptools import find_packages, setup
 
 
@@ -10,7 +11,7 @@ if sys.version_info < MIN_PYTHON:
 
 setup(
     name='Salty',
-    version='0.1',
+    version=__version__,
     description='Password management tool',
     author='Mark garcia Sastre',
     author_email='markcial@gmail.com',

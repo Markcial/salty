@@ -8,6 +8,9 @@ from nacl.secret import SecretBox
 from salty.exceptions import NoValidKeyFound, DefaultKeyNotSet
 
 
+__version__ = '0.1.1'
+
+
 def _new():
     return encoder.encode(random(SecretBox.KEY_SIZE))
 
