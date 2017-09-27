@@ -1,6 +1,6 @@
-from nacl.exceptions import CryptoError
-from nacl.utils import random
-from nacl.secret import SecretBox
+import nacl.exceptions
+import nacl.utils
+import nacl.secret
 
 from salty.config import encoder, Store
 from salty.exceptions import NoValidKeyFound, DefaultKeyNotSet
@@ -10,13 +10,13 @@ __all__ = ['new', 'current', 'select', 'add_secret', 'get_secret', 'encrypt', 'd
 
 
 def _new():
-    return encoder.encode(random(SecretBox.KEY_SIZE))
+    return encoder.encode(nacl.utils.random(nacl.secret.SecretBox.KEY_SIZE))
 
 
 def _box(key):
     assert type(key) is bytes
 
-    return SecretBox(key, encoder=encoder)
+    return nacl.secret.SecretBox(key, encoder=encoder)
 
 
 def _encrypt(message, key=None):
@@ -39,7 +39,7 @@ def _decrypt(name, key=None):
             dk = bytes(k, 'utf8')
             try:
                 return _box(dk).decrypt(name, encoder=encoder)
-            except CryptoError:
+            except nacl.exceptions.CryptoError:
                 continue
         raise NoValidKeyFound
 

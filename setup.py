@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 import sys
-from salty.version import __version__
 from setuptools import find_packages, setup
 
+
+# versioning tools
+exec(open('salty/version.py').read())
 
 MIN_PYTHON = (3, 4)
 if sys.version_info < MIN_PYTHON:

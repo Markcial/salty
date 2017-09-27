@@ -2,13 +2,12 @@ import json
 from os.path import expanduser, join
 from pathlib import Path
 
-from nacl.encoding import URLSafeBase64Encoder
-
+import nacl.encoding
 
 __all__ = ['encoder', 'paths', 'Store', 'store']
 
 
-encoder = URLSafeBase64Encoder()
+encoder = nacl.encoding.URLSafeBase64Encoder()
 
 paths = type('paths', (), {})
 paths.home = expanduser("~")
